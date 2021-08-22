@@ -1,3 +1,4 @@
+import 'package:resident/Utils/bottom_nav_bar.dart';
 import 'package:resident/Utils/constants.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -256,7 +257,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                   Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                          builder: (context) => LoginScreen()));
+                                          builder: (context) =>
+                                              BottomNavBar(currentScreen: 0)));
                                 },
                                 child: Padding(
                                     padding: EdgeInsets.symmetric(
