@@ -4,7 +4,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:resident/Screens/add_code_screen.dart';
 import 'package:resident/Screens/history_screen.dart';
 import 'package:resident/Screens/home_screen.dart';
-import 'package:resident/Screens/login_screen.dart';
 import 'package:resident/Screens/messages_screen.dart';
 import 'package:resident/Screens/profile_screen.dart';
 
@@ -49,150 +48,71 @@ class _BottomNavBarState extends State<BottomNavBar> {
 
     return WillPopScope(
         child: Scaffold(
-          backgroundColor: Colors.white,
-          body: tabs[widget.currentScreen],
-          bottomNavigationBar: Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(50),
-                boxShadow: [
-                  BoxShadow(
-                    color: xColorDarkBlue.withOpacity(0.2),
-                    spreadRadius: 1,
-                    blurRadius: 5,
-                    offset: Offset(0, 0),
-                  ),
-                ],
-              ),
-              child: BottomNavigationBar(
-                backgroundColor: Colors.white,
-                type: BottomNavigationBarType.fixed,
-                selectedItemColor: xColorDarkBlue,
-                selectedIconTheme: IconThemeData(
-                  color: xColorDarkBlue,
-                ),
-                currentIndex: screen,
-                onTap: (index) {
-                  setState(() {
-                    screen = index;
-                  });
-                },
-                elevation: 5,
-                items: [
-                  BottomNavigationBarItem(
-                    icon: SvgPicture.asset(
-                      'assets/vectors/home.svg',
-                      color: xColorDarkBlue,
-                    ),
-                    activeIcon: SvgPicture.asset(
-                      'assets/vectors/home.svg',
-                      color: xColorDarkBlue,
-                    ),
-                    label: 'Home',
-                  ),
-                  BottomNavigationBarItem(
-                      icon: SvgPicture.asset(
-                        'assets/vectors/cherrytomato 1.svg',
-                      ),
-                      activeIcon: SvgPicture.asset(
-                        'assets/vectors/cherrytomato 1.svg',
-                        color: xColorDarkBlue,
-                      ),
-                      label: 'Farm'),
-                  BottomNavigationBarItem(
-                    icon: Icon(
-                      Icons.visibility,
-                      color: Colors.transparent,
-                    ),
-                    label: '',
-                  ),
-                  BottomNavigationBarItem(
-                      icon: SvgPicture.asset(
-                        'assets/vectors/vendor.svg',
-                      ),
-                      activeIcon: SvgPicture.asset(
-                        'assets/vectors/vendor.svg',
-                        color: xColorDarkBlue,
-                      ),
-                      label: 'Vendors'),
-                  BottomNavigationBarItem(
-                      icon: SvgPicture.asset(
-                        'assets/vectors/benefits.svg',
-                      ),
-                      activeIcon: SvgPicture.asset(
-                        'assets/vectors/benefits.svg',
-                        color: xColorDarkBlue,
-                      ),
-                      label: 'Benefits'),
-                ],
-              )),
-          floatingActionButtonLocation:
-              FloatingActionButtonLocation.centerDocked,
-          floatingActionButton: keyboardIsOpened
-              ? null
-              : GestureDetector(
-                  onTap: () async {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        //builder: (context) => ProductReportScreen(),
-                        builder: (context) => LoginScreen(),
-                      ),
-                    );
-
-                    //final data = await Barras.scan(context);
-
-                    //var _scannedCode = data ?? "";
+            backgroundColor: Colors.white,
+            body: tabs[screen],
+            bottomNavigationBar: Padding(
+                padding: const EdgeInsets.only(bottom: 0, left: 10, right: 10),
+                child: Container(
+                    child: BottomNavigationBar(
+                  unselectedLabelStyle: TextStyle(fontSize: 10),
+                  selectedLabelStyle: TextStyle(fontSize: 12),
+                  backgroundColor: Colors.white,
+                  type: BottomNavigationBarType.fixed,
+                  unselectedItemColor: xLogoDarkBlue,
+                  selectedItemColor: xLogoDarkBlue,
+                  unselectedIconTheme: IconThemeData(color: xLogoDarkBlue),
+                  selectedIconTheme: IconThemeData(color: xLogoDarkBlue),
+                  currentIndex: screen,
+                  onTap: (index) {
+                    setState(() {
+                      screen = index;
+                    });
                   },
-                  child: Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(50),
-                      boxShadow: [
-                        BoxShadow(
-                          color: xColorDarkBlue.withOpacity(0.1),
-                          spreadRadius: 1,
-                          blurRadius: 5,
-                          offset: Offset(0, 0),
-                        ),
-                      ],
-                    ),
-                    child: GestureDetector(
-                      // onTap: () async {
-                      //   Navigator.push(
-                      //     context,
-                      //     MaterialPageRoute(
-                      //       //builder: (context) => ProductReportScreen(),
-                      //       builder: (context) => ScanScreen(),
-                      //     ),
-                      //   );
-                      //
-                      //   //final data = await Barras.scan(context);
-                      //   //var _scannedCode = data ?? "";
-                      // },
-                      child: CircleAvatar(
-                        backgroundColor: Colors.white,
-                        radius: 42,
-                        child: Center(
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              SvgPicture.asset(
-                                'assets/vectors/verifyproducts.svg',
-                              ),
-                              Text(
-                                'Scan Tags',
-                                style: TextStyle(
-                                    fontSize: 10, color: xColorDarkBlue),
-                              )
-                            ],
-                          ),
-                        ),
+                  elevation: 0,
+                  items: [
+                    BottomNavigationBarItem(
+                      icon: SvgPicture.asset(
+                        'assets/vectors/home.svg',
                       ),
+                      activeIcon: SvgPicture.asset(
+                        'assets/vectors/activeHome.svg',
+                      ),
+                      label: 'Home',
                     ),
-                  ),
-                ),
-        ),
+                    BottomNavigationBarItem(
+                        icon: SvgPicture.asset(
+                          'assets/vectors/history.svg',
+                        ),
+                        activeIcon: SvgPicture.asset(
+                          'assets/vectors/activeHistory.svg',
+                        ),
+                        label: 'History'),
+                    BottomNavigationBarItem(
+                        icon: SvgPicture.asset(
+                          'assets/vectors/createCode.svg',
+                        ),
+                        label: '',
+                        tooltip: 'Add Code'),
+                    BottomNavigationBarItem(
+                        icon: SvgPicture.asset(
+                          'assets/vectors/messages.svg',
+                        ),
+                        activeIcon: SvgPicture.asset(
+                          'assets/vectors/activeMessages.svg',
+                        ),
+                        label: 'Messages'),
+                    BottomNavigationBarItem(
+                        icon: SvgPicture.asset(
+                          'assets/vectors/profile.svg',
+                        ),
+                        activeIcon: SvgPicture.asset(
+                          'assets/vectors/activeProfile.svg',
+                        ),
+                        label: 'Profile'),
+                  ],
+                )))),
         onWillPop: () async {
-          if (widget.currentScreen == 0) {
+          if (screen == 0) {
             return await showDialog(
                 context: context,
                 builder: (BuildContext context) => AlertDialog(
@@ -201,7 +121,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
                         actions: <Widget>[
                           ElevatedButton(
                               style: ElevatedButton.styleFrom(
-                                  primary: xColorDarkBlue),
+                                  primary: xLogoDarkBlue),
                               onPressed: () {
                                 // Navigator.of(context).pop(true);
                                 SystemNavigator.pop();
@@ -209,7 +129,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
                               child: Text('Yes')),
                           ElevatedButton(
                               style: ElevatedButton.styleFrom(
-                                  primary: xColorDarkBlue),
+                                  primary: xLogoDarkBlue),
                               onPressed: () {
                                 Navigator.of(context).pop(false);
                               },
@@ -219,13 +139,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
             setState(() {
               screen = 0;
             });
-
-            return await Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => LoginScreen(),
-              ),
-            );
+            return false;
           }
         });
   }
