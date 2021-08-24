@@ -51,7 +51,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
             backgroundColor: Colors.white,
             body: tabs[screen],
             bottomNavigationBar: Padding(
-                padding: const EdgeInsets.only(bottom: 0, left: 10, right: 10),
+                padding: const EdgeInsets.only(bottom: 0, left: 0, right: 0),
                 child: Container(
                     child: BottomNavigationBar(
                   unselectedLabelStyle: TextStyle(fontSize: 10),
