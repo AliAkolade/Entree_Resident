@@ -33,6 +33,19 @@ class _HomeScreenState extends State<HomeScreen> {
               )),
           actions: <Widget>[
             Padding(
+                padding: const EdgeInsets.only(right: 10),
+                child: IconButton(
+                  icon: SvgPicture.asset('assets/vectors/notificationHome.svg'),
+                  tooltip: 'Notifications',
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) =>
+                                BottomNavBar(currentScreen: 4)));
+                  },
+                )),
+            Padding(
                 padding: const EdgeInsets.only(right: 20),
                 child: IconButton(
                   icon: SvgPicture.asset('assets/vectors/profileAvatar.svg'),
@@ -187,11 +200,12 @@ class _HistoryItem extends State<HistoryItem> {
             SvgPicture.asset('assets/vectors/listUserIcon.svg'),
             SizedBox(width: 10),
             Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(widget.name,
                     textAlign: TextAlign.left,
                     style: TextStyle(
-                        color: Color.fromRGBO(37, 61, 232, 1),
+                        color: xColorDarkBlue,
                         fontFamily: 'Poppins',
                         fontSize: 16,
                         letterSpacing: 0,
@@ -200,7 +214,7 @@ class _HistoryItem extends State<HistoryItem> {
                 Text(widget.time,
                     textAlign: TextAlign.left,
                     style: TextStyle(
-                        color: Color.fromRGBO(118, 141, 255, 1),
+                        color: Color.fromRGBO(147, 147, 147, 1),
                         fontFamily: 'Poppins',
                         fontSize: 14,
                         letterSpacing: 0,
