@@ -160,7 +160,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         Column(
                           children: [
                             HistoryItem(
-                                name: 'John Albania',
+                                name: 'Oluwatomisin Fakado',
                                 time: '10 minutes ago',
                                 status: true),
                             HistoryItem(
